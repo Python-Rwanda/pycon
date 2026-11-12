@@ -1,0 +1,23 @@
+# Things that stay the same from one edition to the next.
+# Edit here or in the editor at /admin → Conference.
+
+name: PyCon Rwanda
+
+# The edition the home page (/) sends people to. Each edition is a folder in content/editions/.
+# When you start planning next year: copy the folder, rename it, then change this number.
+current_edition: 2027
+
+organizer:
+  name: Python Rwanda
+  url: https://pythonrwanda.org
+
+links:
+  # TODO: a dedicated conference address once the domain is set up (e.g. hello@pycon.rw).
+  email: hello@pythonrwanda.org
+  community_site: https://pythonrwanda.org
+  linkedin: https://www.linkedin.com/company/python-rwanda/
+  instagram: https://www.instagram.com/pyrwanda/
+  x:
+  whatsapp:
+  # Optional: a sign-up form for conference news (Buttondown, Mailchimp, Google Form...).
+  mailing_list:

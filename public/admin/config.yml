@@ -1,0 +1,339 @@
+# yaml-language-server: $schema=https://unpkg.com/@sveltia/cms/schema/sveltia-cms.json
+#
+# Sveltia CMS configuration (https://sveltiacms.app/en/docs).
+# Organizers edit the site at https://<site>/admin/ and every save is a commit to `main`.
+#
+# NEW EDITION? Copy the whole "PyCon Rwanda 2027" collection below, change 2027 to the new
+# year everywhere in the copy (name, label and every file path), and put the copy first.
+
+backend:
+  name: github
+  # TODO: the repository once it exists on GitHub.
+  repo: Python-Rwanda/pycon-rwanda-website
+  branch: main
+  # TODO: URL of the Sveltia CMS Authenticator (Cloudflare Worker) for "Sign in with GitHub".
+  # Until it is set, organizers can use "Sign in with Token". See CONTRIBUTING.md.
+  # base_url: https://sveltia-cms-auth.<account>.workers.dev
+
+media_folder: /public/media/uploads
+public_folder: /media/uploads
+
+media_libraries:
+  default:
+    config:
+      slugify_filename: true
+      max_file_size: 5000000 # 5 MB; bigger photos belong in Cloudinary
+  # cloudinary:
+  #   config:
+  #     cloud_name: YOUR_CLOUD_NAME
+  #     api_key: "YOUR_API_KEY"   # never the API *secret*: this file is public
+  #     folder: { path: pycon }
+
+slug:
+  encoding: ascii
+  clean_accents: true
+
+collections:
+  # ── PyCon Rwanda 2027 ───────────────────────────────────────────────────
+  - name: edition_2027
+    label: PyCon Rwanda 2027
+    icon: event
+    files:
+      - name: edition
+        label: Conference details
+        file: /content/editions/2027/edition.yaml
+        fields:
+          - { name: tagline, label: Tagline, widget: text }
+          - { name: city, label: City }
+          - { name: country, label: Country }
+          - name: dates
+            label: Dates
+            widget: object
+            fields:
+              - { name: start, label: First day, widget: datetime, type: date, required: false }
+              - { name: end, label: Last day, widget: datetime, type: date, required: false }
+              - { name: label, label: Date text override, required: false, hint: 'Shown instead of the dates, e.g. "2027 · dates to be announced". Clear it once the dates are set.' }
+          - name: venue
+            label: Venue
+            widget: object
+            fields:
+              - { name: name, label: Name }
+              - { name: address, label: Address, required: false }
+              - { name: map_url, label: Google Maps link, required: false }
+              - { name: photo, label: Photo, widget: image, required: false }
+          - name: hero
+            label: Home page background
+            widget: object
+            fields:
+              - { name: video, label: Background video (.mp4 path or URL), required: false }
+              - { name: poster, label: Image shown while the video loads (also used for link previews), widget: image, required: false }
+          - { name: about, label: About the conference, widget: markdown }
+          - name: formats
+            label: What happens (home page cards)
+            label_singular: Card
+            widget: list
+            summary: "{{name}}"
+            fields: [{ name: name, label: Name }, { name: text, label: Text, widget: text }]
+          - { name: audience, label: Who comes, widget: list, hint: One line per audience }
+          - name: key_dates
+            label: Key dates (home page timeline)
+            label_singular: Date
+            widget: list
+            summary: "{{label}}"
+            fields:
+              - { name: label, label: What }
+              - { name: date, label: Date, widget: datetime, type: date, required: false }
+              - { name: text, label: Or text instead of a date, required: false, hint: 'e.g. "March 2027" or "TBA"' }
+          - name: tickets
+            label: Tickets
+            widget: object
+            fields:
+              - { name: url, label: Ticket shop link (Pretix, Tito...), required: false }
+              - { name: opens, label: Sales open on, widget: datetime, type: date, required: false }
+              - { name: closes, label: Sales close on (default the last conference day), widget: datetime, type: date, required: false }
+              - { name: intro, label: Intro, widget: markdown, required: false }
+              - name: tiers
+                label: Ticket types
+                label_singular: Ticket type
+                widget: list
+                summary: "{{name}} · {{price}}"
+                fields:
+                  - { name: name, label: Name }
+                  - { name: price, label: Price, hint: 'e.g. "RWF 10,000" or "TBA"' }
+                  - { name: note, label: Note, required: false }
+                  - { name: includes, label: Includes, widget: list, required: false }
+              - { name: note, label: Note below the tickets, widget: markdown, required: false }
+          - name: cfp
+            label: Call for proposals
+            widget: object
+            fields:
+              - { name: url, label: Submission link (Pretalx, Sessionize, form), required: false }
+              - { name: opens, label: Opens on, widget: datetime, type: date, required: false }
+              - { name: closes, label: Closes on, widget: datetime, type: date, required: false }
+              - { name: intro, label: Intro, widget: markdown, required: false }
+              - name: formats
+                label: Formats
+                label_singular: Format
+                widget: list
+                summary: "{{name}} · {{length}}"
+                fields: [{ name: name, label: Name }, { name: length, label: Length }, { name: text, label: Text, widget: text }]
+              - name: topics
+                label: Topics
+                label_singular: Topic
+                widget: list
+                required: false
+                summary: "{{name}}"
+                fields:
+                  - { name: name, label: Topic }
+                  - { name: text, label: Examples (one line) }
+                  - { name: code, label: 'Code line, e.g. "import pandas"', required: false }
+              - name: steps
+                label: How it works (one short line each)
+                label_singular: Step
+                widget: list
+                required: false
+                summary: "{{title}}"
+                fields: [{ name: title, label: Step }, { name: text, label: Text }]
+          - name: financial_aid
+            label: Financial aid
+            widget: object
+            fields:
+              - { name: url, label: Application form link, required: false }
+              - { name: opens, label: Opens on, widget: datetime, type: date, required: false }
+              - { name: closes, label: Closes on, widget: datetime, type: date, required: false }
+              - { name: intro, label: Intro, widget: markdown, required: false }
+              - { name: covers, label: What it can cover, widget: list, required: false }
+              - name: steps
+                label: How it works (one short line each)
+                label_singular: Step
+                widget: list
+                required: false
+                summary: "{{title}}"
+                fields: [{ name: title, label: Step }, { name: text, label: Text }]
+          - name: volunteer
+            label: Volunteering
+            widget: object
+            fields:
+              - { name: url, label: Sign-up form link (email is used when empty), required: false }
+              - { name: intro, label: Intro, widget: markdown, required: false }
+              - name: roles
+                label: Ways to help
+                widget: list
+                summary: "{{name}}"
+                fields: [{ name: name, label: Name }, { name: text, label: Text, widget: text }]
+          - name: sponsorship
+            label: Sponsorship
+            widget: object
+            fields:
+              - { name: prospectus, label: Prospectus (PDF), widget: file, required: false }
+              - { name: intro, label: Intro, widget: markdown, required: false }
+              - name: tiers
+                label: Packages (in order, biggest first)
+                label_singular: Package
+                widget: list
+                summary: "{{name}} · {{price}}"
+                fields:
+                  - { name: name, label: Name }
+                  - { name: price, label: Price }
+                  - { name: slots, label: Availability, required: false, hint: 'e.g. "1 available"' }
+                  - { name: benefits, label: Benefits, widget: list }
+          - name: travel
+            label: Travel
+            widget: object
+            fields:
+              - { name: intro, label: Intro, widget: markdown, required: false }
+              - name: sections
+                label: Sections
+                label_singular: Section
+                widget: list
+                summary: "{{title}}"
+                fields: [{ name: title, label: Title }, { name: body, label: Text, widget: markdown }]
+              - name: hotels
+                label: Hotels
+                label_singular: Hotel
+                widget: list
+                required: false
+                summary: "{{name}}"
+                fields: [{ name: name, label: Name }, { name: note, label: Note, required: false }, { name: url, label: Website, required: false }]
+          - name: faq
+            label: FAQ
+            label_singular: Question
+            widget: list
+            summary: "{{q}}"
+            fields: [{ name: q, label: Question }, { name: a, label: Answer, widget: markdown }]
+          - name: page_images
+            label: Page header photos
+            widget: object
+            collapsed: true
+            fields:
+              - { name: default, label: Default (pages without their own), widget: image }
+              - { name: speakers, label: Speakers, widget: image, required: false }
+              - { name: schedule, label: Schedule, widget: image, required: false }
+              - { name: cfp, label: Call for proposals, widget: image, required: false }
+              - { name: tickets, label: Tickets, widget: image, required: false }
+              - { name: sponsors, label: Sponsors, widget: image, required: false }
+              - { name: travel, label: Travel, widget: image, required: false }
+              - { name: financial_aid, label: Financial aid, widget: image, required: false }
+              - { name: volunteer, label: Volunteer, widget: image, required: false }
+              - { name: about, label: About, widget: image, required: false }
+              - { name: band, label: Blue band, widget: image, required: false }
+          - { name: photos, label: Photo strip (home page), widget: image, multiple: true, required: false }
+
+      - name: speakers
+        label: Speakers
+        file: /content/editions/2027/speakers.yaml
+        fields:
+          - name: speakers
+            label: Speakers
+            label_singular: Speaker
+            widget: list
+            root: true
+            required: false
+            summary: "{{name}}"
+            fields:
+              - { name: name, label: Name }
+              - { name: role, label: Role / organization, required: false }
+              - { name: country, label: Country, required: false }
+              - { name: keynote, label: Keynote speaker, widget: boolean, default: false }
+              - { name: photo, label: Photo (square), widget: image, required: false }
+              - { name: bio, label: Short bio, widget: text, required: false }
+              - name: links
+                label: Links
+                widget: list
+                required: false
+                summary: "{{label}}"
+                fields: [{ name: label, label: Label }, { name: url, label: URL }]
+
+      - name: schedule
+        label: Schedule
+        file: /content/editions/2027/schedule.yaml
+        fields:
+          - name: days
+            label: Days
+            label_singular: Day
+            widget: list
+            required: false
+            summary: "{{date}} · {{label}}"
+            fields:
+              - { name: date, label: Date, widget: datetime, type: date }
+              - { name: label, label: Label, hint: 'e.g. "Day 1 · Talks"' }
+              - name: slots
+                label: Sessions
+                label_singular: Session
+                widget: list
+                summary: "{{time}} {{title}}"
+                fields:
+                  - { name: time, label: Start (24h), pattern: ['^\d{2}:\d{2}$', "Use a time like 09:30"] }
+                  - { name: end, label: End (24h), required: false, pattern: ['^\d{2}:\d{2}$', "Use a time like 10:00"] }
+                  - { name: title, label: Title }
+                  - { name: kind, label: Type, widget: select, default: talk, options: [keynote, talk, workshop, panel, lightning, break, social, other] }
+                  - { name: speakers, label: Speakers (names as on the Speakers list), widget: list, required: false }
+                  - { name: room, label: Room, required: false }
+                  - { name: abstract, label: Short description, widget: text, required: false }
+
+      - name: sponsors
+        label: Sponsors
+        file: /content/editions/2027/sponsors.yaml
+        fields:
+          - name: sponsors
+            label: Sponsors
+            label_singular: Sponsor
+            widget: list
+            root: true
+            required: false
+            summary: "{{tier}} · {{name}}"
+            fields:
+              - { name: name, label: Name }
+              - { name: tier, label: Package, hint: Must match a package name under Conference details → Sponsorship }
+              - { name: url, label: Website, required: false }
+              - { name: logo, label: Logo (SVG or PNG on a transparent background), widget: image, required: false }
+
+      - name: team
+        label: Organizing team
+        file: /content/editions/2027/team.yaml
+        fields:
+          - name: team
+            label: Organizers
+            label_singular: Organizer
+            widget: list
+            root: true
+            required: false
+            summary: "{{name}}"
+            fields:
+              - { name: name, label: Name }
+              - { name: role, label: Role }
+              - { name: photo, label: Photo, widget: image, required: false }
+              - { name: linkedin, label: LinkedIn URL, required: false }
+
+  # ── Shared across editions ──────────────────────────────────────────────
+  - name: conference
+    label: Conference
+    icon: settings
+    files:
+      - name: conference
+        label: Settings & links
+        file: /content/conference.yaml
+        fields:
+          - { name: name, label: Conference name }
+          - { name: current_edition, label: Current edition (year), widget: number, value_type: int, hint: The home page sends visitors here. The year needs a folder in content/editions. }
+          - name: organizer
+            label: Organizer
+            widget: object
+            fields: [{ name: name, label: Name }, { name: url, label: Website }]
+          - name: links
+            label: Links
+            widget: object
+            fields:
+              - { name: email, label: Contact email }
+              - { name: community_site, label: Community website }
+              - { name: linkedin, label: LinkedIn, required: false }
+              - { name: instagram, label: Instagram, required: false }
+              - { name: x, label: X (Twitter), required: false }
+              - { name: whatsapp, label: WhatsApp, required: false }
+              - { name: mailing_list, label: Newsletter sign-up link, required: false }
+      - name: coc
+        label: Code of Conduct
+        file: /content/code-of-conduct.md
+        format: frontmatter
+        fields:
+          - { name: body, label: Code of Conduct, widget: markdown }

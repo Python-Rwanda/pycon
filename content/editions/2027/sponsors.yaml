@@ -1,0 +1,5 @@
+# Sponsors for this edition. `tier` must match a tier name in edition.yaml → sponsorship.tiers;
+# sponsors are shown grouped by tier in that order. `logo` and `url` are optional.
+# Example:
+# - { name: Example Ltd, tier: Gold, url: "https://example.com", logo: /media/uploads/example.svg }
+[]

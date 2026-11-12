@@ -1,0 +1,7 @@
+# Organizers of this edition, shown on /2027/about.
+# Example:
+# - name: Jane Doe
+#   role: Conference chair
+#   photo: https://res.cloudinary.com/<cloud>/image/upload/pycon/team/jane.jpg
+#   linkedin: https://www.linkedin.com/in/janedoe/
+[]

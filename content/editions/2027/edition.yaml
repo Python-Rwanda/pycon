@@ -1,0 +1,192 @@
+# PyCon Rwanda 2027. Everything on the /2027 pages comes from this folder.
+# Edit here or in the editor at /admin → PyCon Rwanda 2027. See CONTRIBUTING.md.
+#
+# Keep text short: one line where possible. Lines marked TODO are placeholders.
+
+tagline: The first PyCon in Rwanda. Talks, workshops and sprints in Kigali.
+city: Kigali
+country: Rwanda
+
+dates:
+  # TODO: set when confirmed, then clear `label`.
+  start:
+  end:
+  label: 2027 · dates to be announced
+
+venue:
+  # TODO
+  name: Venue to be announced
+  address:
+  map_url:
+  photo:
+
+hero:
+  video: /media/video/mku-reel-bg.mp4
+  poster: /media/video/mku-reel-poster.jpg
+
+page_images:
+  default: /media/photos/pycon-2.jpg
+  speakers: /media/photos/PXL_20261022_094429110.jpg
+  schedule: /media/photos/IMG_1538.jpg
+  cfp: /media/photos/PXL_20261022_093627801.jpg
+  tickets: /media/photos/IMG_1550.jpg
+  sponsors: /media/photos/pycon-1.jpg
+  travel: /media/photos/PXL_20261022_103349997.jpg
+  financial_aid: /media/photos/1.jpg
+  volunteer: /media/photos/PXL_20261022_095935924.jpg
+  band: /media/photos/PXL_20261022_100101271.jpg
+
+photos:
+  - /media/photos/IMG_1533.jpg
+  - /media/photos/PXL_20261022_093627801.jpg
+  - /media/photos/pycon-1.jpg
+  - /media/photos/PXL_20260724_125205606.jpg
+  - /media/photos/PXL_20261022_094429110.jpg
+  - /media/photos/IMG_1550.jpg
+  - /media/photos/pycon-2.jpg
+  - /media/photos/1.jpg
+
+about: |
+  A community-run conference for everyone who uses Python, from students to maintainers.
+  Organized by volunteers from [Python Rwanda](https://pythonrwanda.org).
+
+formats:
+  - { name: Talks, text: What people build with Python. }
+  - { name: Workshops, text: Bring a laptop, leave with something built. }
+  - { name: Keynotes, text: Voices from Rwanda, Africa and beyond. }
+  - { name: Lightning talks, text: Five minutes, any topic. }
+  - { name: Sprints, text: Contribute to open source. }
+  - { name: Hallway track, text: Meet people, find collaborators. }
+
+audience:
+  - Students
+  - Developers
+  - Researchers
+  - Data practitioners
+  - Educators
+  - Open source maintainers
+
+key_dates:
+  - { label: Call for proposals opens, text: TBA }
+  - { label: Call for proposals closes, text: TBA }
+  - { label: Speakers announced, text: TBA }
+  - { label: Tickets on sale, text: TBA }
+  - { label: Conference, text: TBA }
+
+tickets:
+  url:
+  opens:
+  closes:
+  intro: |
+    Every ticket includes all conference days, lunch and coffee breaks.
+  # TODO: prices.
+  tiers:
+    - { name: Student, price: TBA, note: Student ID required. }
+    - { name: Individual, price: TBA, note: Paying for yourself. }
+    - { name: Corporate, price: TBA, note: Your employer pays. Includes an invoice. }
+  note: |
+    Can't afford a ticket? Apply for [financial aid](financial-aid).
+
+cfp:
+  url:
+  opens:
+  closes:
+  intro: |
+    First talk or fiftieth, we want to hear what you've built, learned or researched with Python.
+  formats:
+    - { name: Talk, length: 30 min, text: Includes questions. }
+    - { name: Workshop, length: 2 hours, text: Attendees code along. }
+    - { name: Lightning talk, length: 5 min, text: Sign up on the day. }
+  # name: the topic. text: one line of examples. code: optional, shown above in code style.
+  topics:
+    - { name: Web & APIs, code: import django, text: "Django, Flask, FastAPI, building and scaling web apps." }
+    - { name: Data science, code: import pandas, text: "Analysis, visualization, dashboards, working with messy data." }
+    - { name: Machine learning & AI, code: import torch, text: "Models in production, LLMs, ML on local data and languages." }
+    - { name: Python for impact, code: import geopandas, text: "Python in health, agriculture, finance and government." }
+    - { name: Research & science, code: import numpy, text: "Scientific computing, reproducible research, notebooks." }
+    - { name: Education, code: import turtle, text: "Teaching Python in schools, universities and bootcamps." }
+    - { name: Tooling & quality, code: import pytest, text: "Testing, packaging, typing, performance, developer tools." }
+    - { name: Community & open source, code: import this, text: "Contributing, maintaining, growing communities in Africa." }
+  steps:
+    - { title: Submit, text: Short and clear beats long. }
+    - { title: Review, text: A community committee reads every proposal. }
+    - { title: Hear back, text: Everyone gets an answer by email. }
+    - { title: Prepare, text: First-time speakers can get a mentor. }
+
+financial_aid:
+  url:
+  opens:
+  closes:
+  intro: |
+    Help for students, first-time attendees and under-represented groups.
+  covers:
+    - Ticket
+    - Travel
+    - Accommodation
+  steps:
+    - { title: Apply, text: Fill in the form before the deadline. }
+    - { title: Review, text: A small committee reads every application in confidence. }
+    - { title: Hear back, text: Everyone gets an answer by email. }
+
+volunteer:
+  url:
+  intro: |
+    PyCon Rwanda is run entirely by volunteers. Give a few hours or a few months.
+  roles:
+    - { name: Before, text: Program, sponsorship, design, comms, logistics. }
+    - { name: On the day, text: Registration, rooms, photos, guiding guests. }
+    - { name: Mentoring, text: Help first-time speakers and workshop attendees. }
+
+sponsorship:
+  prospectus:
+  intro: |
+    Reach the people building Rwanda's tech future, and keep tickets affordable for students.
+  # TODO: prices and benefits.
+  tiers:
+    - name: Headline
+      price: Contact us
+      slots: 1 available
+      benefits: [Top logo placement, Speaking slot, Booth, 8 tickets]
+    - name: Gold
+      price: Contact us
+      benefits: [Large logo, Booth, 5 tickets]
+    - name: Silver
+      price: Contact us
+      benefits: [Logo, Table, 3 tickets]
+    - name: Community
+      price: Contact us
+      benefits: [Logo, 1 ticket]
+
+travel:
+  intro: |
+    Rwanda's capital: safe, clean, easy to get around.
+  # TODO: check against official sources before launch.
+  sections:
+    - title: Visas
+      body: |
+        Many visitors get a visa on arrival or need none.
+        [Check your passport](https://www.migration.gov.rw). Need an invitation letter? Email us after registering.
+    - title: Arriving
+      body: |
+        Fly into Kigali International Airport (KGL), a short drive from the city.
+    - title: Getting around
+      body: |
+        Taxis, moto-taxis and ride-hailing apps. Directions to the venue closer to the date.
+    - title: Money & data
+      body: |
+        Rwandan franc (RWF). Cards and mobile money are widely used. Cheap SIM cards at the airport.
+  hotels: []
+
+faq:
+  - q: Who is it for?
+    a: Anyone interested in Python, beginner or expert.
+  - q: When and where?
+    a: Kigali, 2027. Dates and venue are announced here first.
+  - q: What language?
+    a: English.
+  - q: How do I give a talk?
+    a: Submit to the [call for proposals](cfp). First-time speakers welcome.
+  - q: Can I get help with costs?
+    a: Yes, see [financial aid](financial-aid).
+  - q: Will talks be recorded?
+    a: We plan to publish recordings after the conference.

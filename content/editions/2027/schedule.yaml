@@ -1,0 +1,14 @@
+# The programme. Until there's at least one day here, /2027/schedule shows "coming soon".
+#
+# kind: keynote | talk | workshop | panel | lightning | break | social | other
+# speakers: names exactly as written in speakers.yaml (they link to the speaker).
+#
+# Example:
+# days:
+#   - date: 2027-08-20
+#     label: Day 1 · Talks
+#     slots:
+#       - { time: "08:00", end: "09:00", title: Registration and breakfast, kind: break }
+#       - { time: "09:00", end: "09:45", title: Opening keynote, kind: keynote, speakers: [Jane Doe], room: Main hall }
+#       - { time: "10:00", end: "10:30", title: "Testing data pipelines with pytest", speakers: [John Doe], room: Room A }
+days: []

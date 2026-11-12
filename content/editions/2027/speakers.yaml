@@ -1,0 +1,11 @@
+# Speakers for this edition. Keynote speakers are featured on the home page.
+# Example:
+# - name: Jane Doe
+#   role: Senior engineer, Example Ltd
+#   country: Rwanda
+#   keynote: true
+#   photo: https://res.cloudinary.com/<cloud>/image/upload/pycon/2027/jane.jpg
+#   bio: Jane builds data pipelines for public health and teaches Python at weekends.
+#   links:
+#     - { label: LinkedIn, url: "https://www.linkedin.com/in/janedoe/" }
+[]
